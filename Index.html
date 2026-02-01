@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPCP Electronics | Made in India</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #e62e2d;
+            --deep-black: #111111;
+            --card-bg: #1e1e1e;
+            --white: #ffffff;
+            --gray: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(0, 0, 0, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo img { height: 45px; display: block; }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary-red); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), var(--deep-black)), 
+                        url('https://images.unsplash.com/photo-1558403194-611308249627?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 10px; }
+        .hero span { color: var(--primary-red); }
+        .hero p { max-width: 600px; color: var(--gray); margin-bottom: 30px; font-size: 1.2rem; }
+
+        .btn-red {
+            background: var(--primary-red);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        /* Product Slider Styles */
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            text-align: left;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(230, 46, 45, 0.7);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+        }
+
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        /* About Section */
+        section { padding: 80px 10%; }
+        .section-title { font-size: 2.5rem; margin-bottom: 30px; text-align: center; }
+        .more-text { display: none; margin-top: 20px; }
+        .read-more-btn {
+            background: none;
+            border: 1px solid var(--primary-red);
+            color: var(--primary-red);
+            padding: 8px 20px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        /* Contact Section Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .address-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-left: 4px solid var(--primary-red);
+            border-radius: 8px;
+        }
+
+        .address-box h3 {
+            color: var(--primary-red);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #000;
+                padding: 20px;
+            }
+            .nav-links.active { display: flex; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .slide img { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><img src="JPCPLOGO.png" alt="JPCP Logo"></div>
+        <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="home">
+        <h1>MADE IN <span>INDIA</span></h1>
+        <p>Premium Electrical Solutions by JPCP Electronics.</p>
+        <a href="#inquiry" class="btn-red">GET AN INQUIRY</a>
+    </div>
+
+    <section id="products">
+        <h2 class="section-title">Our Products</h2>
+        <div class="slider-container">
+            <button class="slider-btn prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider" id="productSlider">
+                <div class="slide">
+                    <img src="wire jpcp.png" alt="Wire">
+                    <div class="slide-content">
+                        <h3>JPCP Wires</h3>
+                        <p>Powering your home with unmatched safety and superior insulation.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="ledjpcpp.png" alt="Lighting">
+                    <div class="slide-content">
+                        <h3>Precision Lighting</h3>
+                        <p>LED solutions for modern homes.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="switchjpcpp.png" alt="Switches">
+                    <div class="slide-content">
+                        <h3>Modular Switches</h3>
+                        <p>Safety and style in every click.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="fan jpcp.png" alt="Fan">
+                    <div class="slide-content">
+                        <h3>Energy Efficient Fans</h3>
+                        <p>High speed and low power consumption.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-btn next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section id="about" style="background: #0a0a0a;">
+        <h2 class="section-title">Our Story</h2>
+        <div id="about-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p>Founded in 2024 by Mr. Brijesh Pathak, JPCP Electronics is committed to 100% "Made in India" electrical excellence.</p>
+            <div class="more-text" id="moreText">
+                <p>We reduce import dependence by manufacturing energy-efficient fans, lighting, and modular switches right here at home. Based in India, we combine traditional integrity with modern engineering for your safety.</p>
+            </div>
+            <button class="read-more-btn" id="readMoreBtn" onclick="toggleAbout()">READ MORE</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-grid">
+            <div class="address-box">
+                <h3><i class="fas fa-building"></i> Registered Office</h3>
+                <p><strong>JPCP Electronics</strong></p>
+                <p>Chakka Road, Baddi, Himanchal Pradesh,</p>
+                <p>India - 173205</p>
+                <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> jpcp.sell@gmail.com</p>
+            </div>
+
+            <div class="address-box">
+                <h3><i class="fas fa-headquarters"></i> Corporate Office</h3>
+                <p><strong>JPCP Electronics</strong></p>
+                <p>Varanasi, Banaras to Machalisahar Road,</p>
+                <p>NH 731B, Uttar Pradesh, India - 221405</p>
+                <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> jpcp.sell@gmail.com</p>
+            </div>
+        </div>
+
+        <div id="inquiry" style="margin-top: 50px; background: #161616; padding: 40px; border-radius: 10px;">
+            <h2 style="margin-bottom: 20px;">Quick Inquiry</h2>
+            <form>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <input type="text" placeholder="Name" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
+                    <input type="email" placeholder="Email" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
+                </div>
+                <textarea rows="4" placeholder="Message" style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white; margin-top:20px;"></textarea>
+                <button type="submit" class="btn-red" style="border:none; cursor:pointer; margin-top:20px; width:100%;">SEND MESSAGE</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="padding: 30px; text-align: center; border-top: 1px solid #222; color: #666;">
+        <p>&copy; 2026 JPCP Electronics. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        mobileMenu.addEventListener('click', () => navList.classList.toggle('active'));
+
+        // Slider Logic
+        let currentSlide = 0;
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.slide');
+            currentSlide = (currentSlide + step + slides.length) % slides.length;
+            document.getElementById('productSlider').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // About Toggle
+        function toggleAbout() {
+            const moreText = document.getElementById("moreText");
+            const btn = document.getElementById("readMoreBtn");
+            if (moreText.style.display === "block") {
+                moreText.style.display = "none";
+                btn.innerHTML = "READ MORE";
+            } else {
+                moreText.style.display = "block";
+                btn.innerHTML = "SHOW LESS";
+            }
+        }
+    </script>
+</body>
+</html>
