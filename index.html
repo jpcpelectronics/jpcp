@@ -62,19 +62,20 @@
         .nav-links a:hover { color: var(--primary-red); }
 
         /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), var(--deep-black)), 
-                        url('https://images.unsplash.com/photo-1558403194-611308249627?q=80&w=2070');
-            background-size: cover;
-            background-position: center;
-        }
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), var(--deep-black)), 
+                url('backjp.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Isse parallax effect aayega */
+}
 
         .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 10px; }
         .hero span { color: var(--primary-red); }
@@ -308,8 +309,23 @@
 </div>
     </section>
 
-    <footer style="padding: 30px; text-align: center; border-top: 1px solid #222; color: #666;">
-        <p>&copy; 2026 JPCP Electronics. All Rights Reserved.</p>
+    <footer style="padding: 40px 5%; background: #0a0a0a; border-top: 1px solid #222; text-align: center;">
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: var(--white); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Follow Us</h4>
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <a href="https://www.linkedin.com/company/jpcpindia/" target="_blank" style="color: var(--gray); font-size: 24px; transition: 0.3s;" onmouseover="this.style.color='#0077b5'" onmouseout="this.style.color='#a0a0a0'">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/@jpcpindia" target="_blank" style="color: var(--gray); font-size: 24px; transition: 0.3s;" onmouseover="this.style.color='#ff0000'" onmouseout="this.style.color='#a0a0a0'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div style="color: #666; font-size: 14px;">
+            <p>&copy; 2026 JPCP Electronics. All Rights Reserved.</p>
+            <p style="margin-top: 5px; font-size: 12px;">Quality Electrical Solutions | Made in India</p>
+        </div>
     </footer>
 
     <script>
@@ -341,6 +357,7 @@
     </script>
 </body>
 </html>
+
 
 
 
