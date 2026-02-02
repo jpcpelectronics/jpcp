@@ -283,16 +283,24 @@
         </div>
 
         <div id="inquiry" style="margin-top: 50px; background: #161616; padding: 40px; border-radius: 10px;">
-            <h2 style="margin-bottom: 20px;">Quick Inquiry</h2>
-            <form>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <input type="text" placeholder="Name" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
-                    <input type="email" placeholder="Email" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
-                </div>
-                <textarea rows="4" placeholder="Message" style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white; margin-top:20px;"></textarea>
-                <button type="submit" class="btn-red" style="border:none; cursor:pointer; margin-top:20px; width:100%;">SEND MESSAGE</button>
-            </form>
+    <h2 style="margin-bottom: 20px;">Quick Inquiry</h2>
+    
+    <form action="https://api.web3forms.com/submit" method="POST">
+        
+        <input type="hidden" name="access_key" value="9e97fdef-cb1a-4f3c-b2a1-ee3363408bb9">
+
+        <input type="hidden" name="redirect" value="https://jpcpelectronics.github.io/jpcp/">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <input type="text" name="name" placeholder="Name" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
+            <input type="email" name="email" placeholder="Email" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
         </div>
+        
+        <textarea name="message" rows="4" placeholder="Message" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white; margin-top:20px;"></textarea>
+        
+        <button type="submit" class="btn-red" style="border:none; cursor:pointer; margin-top:20px; width:100%; background: #e62e2d; color: white; padding: 15px; font-weight: 700; border-radius: 4px;">SEND MESSAGE</button>
+    </form>
+</div>
     </section>
 
     <footer style="padding: 30px; text-align: center; border-top: 1px solid #222; color: #666;">
@@ -328,4 +336,5 @@
     </script>
 </body>
 </html>
+
 
