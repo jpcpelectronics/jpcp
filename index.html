@@ -291,9 +291,14 @@
 
         <input type="hidden" name="redirect" value="https://jpcpelectronics.github.io/jpcp/">
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <input type="text" name="name" placeholder="Name" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
-            <input type="email" name="email" placeholder="Email" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+            <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <input type="email" name="email" placeholder="Email Address" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
+                
+                <input type="tel" name="phone" placeholder="Mobile Number" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white;">
+            </div>
         </div>
         
         <textarea name="message" rows="4" placeholder="Message" required style="width:100%; padding:15px; background:#222; border:1px solid #444; color:white; margin-top:20px;"></textarea>
@@ -336,5 +341,6 @@
     </script>
 </body>
 </html>
+
 
 
